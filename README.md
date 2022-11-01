@@ -1,4 +1,10 @@
 # MediXpert
+TEAM:
+ALEX JAMES
+LISON SABU
+SOUMYA MATHEW
+SURYAJITH R
+
 
 <img src="https://aniyuki.com/wp-content/uploads/2021/05/aniyuki-anime-dance-gif-51.gif">
 
