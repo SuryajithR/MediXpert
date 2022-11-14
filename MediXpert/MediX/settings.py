@@ -28,6 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# AUTH_USER_MODEL = 'patient.Patient'
+# AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts.apps.AccountsConfig',
+    'patient.apps.patientConfig',
 ]
 
 MIDDLEWARE = [
