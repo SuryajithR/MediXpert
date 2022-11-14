@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>test</title>
+    <link rel="stylesheet" href="{% static 'css/logstyle.css' %}" />
+  </head>
+  <body>
+<!--Hey! This is the original version
+of Simple CSS Waves-->
+
+<div class="header">
+
+    <!--Content before waves-->
+    <div class="inner-header2 flex2">
+      <!--Just the logo.. Don't mind this-->
+      <div class="wrapper">
+    <h2>Registration</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="input-box">
+        <input type="text" name="full_name" placeholder="Enter your name" required>
+      </div>
+      <div class="input-box">
+        <input type="text" name="dateofb" placeholder="Date of Birth" required>
+      </div>
+
+        <!-- <input type="text" placeholder="Gender" required> -->
+        <select class="input-box" name="gender" id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+
+
+
+
+
+      <div class="input-box">
+        <input type="number" name="phone_num" placeholder="Phone number" required>
+      </div>
+      <div class="input-box">
+        <input type="text" name="email" placeholder="Email" required>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password1" placeholder="Create password" required>
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Confirm password" required>
+      </div>
+      <div class="policy">
+        <input type="checkbox">
+        <h3>I accept all terms & condition</h3>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Register Now">
+      </div>
+      <div class="text">
+        <h3>Already have an account? <a href="{% url 'patient:login' %}">Login now</a></h3>
+      </div>
+    </form>
+  </div>
+    </div>
+  
+    <!--Waves Container-->
+    <div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+      </svg>
+    </div>
+    <!--Waves end-->
+  
+  </div>
+  <!--Header ends-->
+  
+ 
+</body>
+</html>
