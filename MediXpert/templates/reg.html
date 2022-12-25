@@ -4,6 +4,7 @@
   <head>
     <title>test</title>
     <link rel="stylesheet" href="{% static 'css/logstyle.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
   </head>
   <body>
 <!--Hey! This is the original version
@@ -14,50 +15,41 @@ of Simple CSS Waves-->
     <!--Content before waves-->
     <div class="inner-header2 flex2">
       <!--Just the logo.. Don't mind this-->
-      <div class="wrapper">
+      <div style="margin-top: 100px;" class="wrapper">
     <h2>Registration</h2>
-    <form action="" method="post">
+
+    <div class="show">
+      {% if messages %}
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+        {% endif %}
+    </div>
+
+
+    <form action="" method="POST">
       {% csrf_token %}
       <div class="input-box">
-        <input type="text" name="full_name" placeholder="Enter your name" required>
+        {{ form.username }}
       </div>
       <div class="input-box">
-        <input type="text" name="dateofb" placeholder="Date of Birth" required>
-      </div>
-
-        <!-- <input type="text" placeholder="Gender" required> -->
-        <select class="input-box" name="gender" id="gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-
-
-
-
-
-      <div class="input-box">
-        <input type="number" name="phone_num" placeholder="Phone number" required>
+        {{ form.phone }}
       </div>
       <div class="input-box">
-        <input type="text" name="email" placeholder="Email" required>
+        {{ form.email }}
       </div>
       <div class="input-box">
-        <input type="password" name="password1" placeholder="Create password" required>
+        {{ form.password1 }}
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Confirm password" required>
+        {{ form.password2 }}
       </div>
-      <div class="policy">
-        <input type="checkbox">
-        <h3>I accept all terms & condition</h3>
-      </div>
-      <div class="input-box button">
-        <input type="Submit" value="Register Now">
-      </div>
-      <div class="text">
-        <h3>Already have an account? <a href="{% url 'patient:login' %}">Login now</a></h3>
-      </div>
-    </form>
+      <input type="submit" value="Sign UP">
+      <div class="signup_link">
+      Already have an account? <a href="{% url 'patient:login' %}">Login Here</a>
+    </div>    
+  </form>
   </div>
     </div>
   
@@ -79,6 +71,15 @@ of Simple CSS Waves-->
   
   </div>
   <!--Header ends-->
+
+  <script>
+    setTimeout(function() {
+      var errorMessages = document.querySelectorAll('.show');
+        for (var i = 0; i < errorMessages.length; i++) {
+            errorMessages[i].remove();
+        }
+    }, 2000);
+</script>
   
  
 </body>
