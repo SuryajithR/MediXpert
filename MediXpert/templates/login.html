@@ -4,12 +4,22 @@
   <head>
     <title>test</title>
     <link rel="stylesheet" href="{% static 'css/logstyle.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
   </head>
   <body>
 <!--Hey! This is the original version
 of Simple CSS Waves-->
 
 <div class="header">
+  <!-- {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == "warning" %}
+            <script>
+              alert('Login Unsuccessfull!!!. Please check Username/Password');
+            </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %} -->
 
     <!--Content before waves-->
     <div class="inner-header flex">
@@ -18,6 +28,18 @@ of Simple CSS Waves-->
         <h1>Login</h1>
         <form method="post">
           {% csrf_token %}
+
+          {% if messages %}
+          <div class="show">
+              {% for message in messages %}
+              <div class="alert alert-success" role="alert">
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+              </div>
+              {% endfor %}
+            </div> 
+              {% endif %}
+
+
           <div class="txt_field">
             <input type="text" name="username" required>
             <span></span>
@@ -55,7 +77,14 @@ of Simple CSS Waves-->
   
   </div>
   <!--Header ends-->
-  
+  <script>
+    setTimeout(function() {
+      var errorMessages = document.querySelectorAll('.show');
+        for (var i = 0; i < errorMessages.length; i++) {
+            errorMessages[i].remove();
+        }
+    }, 5000);
+</script>
  
 </body>
 </html>

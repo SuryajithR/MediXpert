@@ -23,5 +23,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('patient/', include('patient.urls', namespace="patient")),
+    path('doctor/', include('doctor.urls', namespace="doctor")),
+    path('lab/', include('lab.urls', namespace="lab")),
 
 ]
