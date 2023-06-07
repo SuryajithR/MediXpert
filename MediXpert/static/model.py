@@ -1,4 +1,5 @@
 # Author: SimpleSaad
+# Modified by Suryajith R
 
 from sklearn.svm import SVC, LinearSVC
 from sklearn.preprocessing import MinMaxScaler
